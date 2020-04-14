@@ -22,7 +22,7 @@ def _body_index():
             <font size="4">This web site designed for..... Anyway, I hope you ENJOY THE GAME.</font>
         </p>
         <p>
-            <font size="4"><a href="./?page=1">Go to the riddles! ></a></font><br>
+            <font size="4"><a href="./?page=1">Go to the questions! ></a></font><br>
         </p>
     </body>
     """
