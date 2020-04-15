@@ -5,7 +5,7 @@ from datetime import datetime, time
 
 def check_time():
     now = datetime.now().time()
-    return not timeutils.in_between(now, time(4), time(5))
+    return timeutils.in_between(now, time(4), time(5))
 
 
 def _body_index():
@@ -20,6 +20,10 @@ def _body_index():
         </p>
     </body>
     """
+
+
+def rewards():
+    return "flag{h4rghndsjpogjre80gyrg9e4ugpj}"
 
 
 def _body_question(questions, page, _answer, answer_dict):
