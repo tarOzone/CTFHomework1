@@ -1,8 +1,7 @@
 import json
-from datetime import datetime, time
+from ctf_homework import poem
 from ctf_homework import pages
 from ctf_homework import answers
-from ctf_homework import timeutils
 from flask import Flask, request, render_template_string
 
 
@@ -15,13 +14,9 @@ with open("data/questions.json", "r") as f:
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    now = datetime.now().time()
-    if timeutils.in_between(now, time(4), time(5)):
-        gt = """
-        <title>The Question Game: Golden Time! %nbsp%nbsp%nbsp%nbsp%nbsp flag{40cef608897fbd5358da9a6659b899e3}</title>
-        <h2>The Question Game special: Golden Time!</h2>
-        """
-        return render_template_string(gt)
+    if pages.check_time():
+        template = pages.goldentime()
+        return render_template_string(template)
     else:
         answer = request.form['answer'] if request.method == 'POST' else ""
         page = request.args.get('page') if request.args.get('page') else "The Question Game: index"
@@ -31,7 +26,34 @@ def index():
 
 @app.route('/rewards', methods=['GET', 'POST'])
 def rewards():
-    return "flag{h4rghndsjpogjre80gyrg9e4ugpj}" if ans_dict.all() else "Not yet!"
+    return "flag{h4rghndsjpogjre80gyrg9e4ugpj}" if ans_dict.all() else "Not available now."
+
+
+@app.route('/thepoem', methods=['GET'])
+def the_poems():
+    if pages.check_time():
+        template = pages.the_poem()
+        return render_template_string(template, poem=poem)
+    else:
+        return "Not available now."
+
+
+@app.route('/justanaudio', methods=['GET'])
+def just_an_audio():
+    if pages.check_time():
+        template = pages.just_an_audio()
+        return render_template_string(template)
+    else:
+        return "Not available now."
+
+
+@app.route('/hint254', methods=['GET'])
+def hint_254():
+    if pages.check_time():
+        template = pages.hint_254()
+        return render_template_string(template)
+    else:
+        return "Not available now."
 
 
 if __name__ == "__main__":
