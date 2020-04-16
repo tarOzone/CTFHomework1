@@ -142,7 +142,7 @@ def just_an_audio():
     <head>
         <title>The Question Game: Golden Time - Just an audio</title>
     </head>
-    <h1><div align="center">f.wav</div></h1>
+    <h1><div align="center">!@#@#$W$#^&C%F%F^DW#^$F%%^&(</div></h1>
     <audio controls>
         <source src="static/f.wav" type="audio/wav">
     </audio>
@@ -159,7 +159,7 @@ def hint_254():
         <title>Index</title>
     </head>
     <body>
-        <img src="./static/254.png" alt="User Image">
+        <img src="static/254.png" alt="254">
     </body>
     </html>
     """

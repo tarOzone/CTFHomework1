@@ -2,7 +2,7 @@ import pickle
 from ctf_homework import poem
 from ctf_homework import pages
 from ctf_homework import answers
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, url_for
 
 
 app = Flask(__name__)
@@ -55,6 +55,7 @@ def just_an_audio():
 def hint_254():
     if pages.check_time():
         template = pages.hint_254()
-        return render_template_string(template)
+        import os
+        return render_template_string(template, os=os)
     else:
         return "Not available now."

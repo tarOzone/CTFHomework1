@@ -1,4 +1,4 @@
-from ctf_homework import app, ans_dict
+from app import app, ans_dict
 
 
 if __name__ == "__main__":
