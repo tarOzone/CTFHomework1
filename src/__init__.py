@@ -1,4 +1,4 @@
-import json
+import pickle
 from ctf_homework import poem
 from ctf_homework import pages
 from ctf_homework import answers
@@ -8,8 +8,8 @@ from flask import Flask, request, render_template_string
 app = Flask(__name__)
 ans_dict = answers.Answers()
 
-with open("data/questions.json", "r") as f:
-    questions = json.loads(f.read())
+with open("data/questions.pickle", "rb") as f:
+    questions = pickle.load(f)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -58,13 +58,3 @@ def hint_254():
         return render_template_string(template)
     else:
         return "Not available now."
-
-
-if __name__ == "__main__":
-    try:
-        app.run('0.0.0.0', 5000, debug=True)
-    except KeyboardInterrupt:
-        print("[*] Closing...")
-    finally:
-        ans_dict.close()
-        print("[*] Server has been closed.")

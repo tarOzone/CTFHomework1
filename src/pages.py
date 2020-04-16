@@ -1,3 +1,4 @@
+import pickle
 from ctf_homework import poem
 from ctf_homework import timeutils
 from datetime import datetime, time
@@ -23,7 +24,8 @@ def _body_index():
 
 
 def rewards():
-    return "flag{h4rghndsjpogjre80gyrg9e4ugpj}"
+    with open("data/reward.pickle", "rb") as f:
+        return pickle.load(f)["reward"]
 
 
 def _body_question(questions, page, _answer, answer_dict):
