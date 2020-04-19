@@ -46,8 +46,8 @@ def _body_question(questions, page, _answer, answer_dict):
                 <h1><font size="4">[ANSWER]: Corrected!</font></h1>
             {{% else %}}
                 <form method="POST">
-                    <input name="answer", placeholder="your answer here">
-                    <input type="submit">
+                    <input name="answer", type="text", placeholder="your answer here">
+                    <input name="submit", type="submit">
                 </form>
             {{% endif %}}
         </p>

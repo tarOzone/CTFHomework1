@@ -1,7 +1,5 @@
 # Environments
-.env
 venv
-src
 
-# flags
-flags.json
+# Byte-compiled
+__pycache__
